@@ -5,6 +5,8 @@ import 'tourism_place.dart';
 List<TourismPlace> tourismPlacesList = tourismPlaceList;
 
 class homepage extends StatelessWidget {
+  const homepage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
