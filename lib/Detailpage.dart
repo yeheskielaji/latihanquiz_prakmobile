@@ -28,7 +28,8 @@ class _DetailPageState extends State<Detailpage> {
                 const SizedBox(height: 16.0),
                 Text(
                   widget.place.name,
-                  style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8.0),
@@ -60,6 +61,44 @@ class _DetailPageState extends State<Detailpage> {
                     },
                   ),
                 ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 75,
+                  child: ListView.builder(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return Row(
+                        children: <Widget>[
+                          Row(
+                            children: <Widget>[
+                              const Icon(Icons.calendar_month_outlined),
+                              const SizedBox(width: 5),
+                              Text(widget.place.openDays),
+                            ],
+                          ),
+                          const SizedBox(width: 50),
+                          Row(
+                            children: <Widget>[
+                              const Icon(Icons.access_time),
+                              const SizedBox(width: 5),
+                              Text(widget.place.openTime),
+                            ],
+                          ),
+                          const SizedBox(width: 50),
+                          Row(
+                            children: <Widget>[
+                              const Icon(Icons.money_rounded),
+                              const SizedBox(width: 5),
+                              Text(widget.place.ticketPrice),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                )
               ],
             ),
           ),
