@@ -9,25 +9,8 @@ class Loginpage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<Loginpage> {
-  final userController = TextEditingController();
   final passController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login Page'),
-      ),
-      body: Column(
-        children: [
-          _inputField("Username"),
-          _inputField("Password", isPassword: true),
-          _elevatedButton("Login", context),
-          Text(userController.text)
-        ],
-      ),
-    );
-  }
+  final userController = TextEditingController();
 
   Widget _inputField(
     String inputTitle, {
@@ -38,7 +21,6 @@ class _LoginPageState extends State<Loginpage> {
       child: TextFormField(
         controller: (isPassword) ? passController : userController,
         enabled: true,
-        onChanged: (value) {},
         obscureText: isPassword,
         decoration: InputDecoration(
           hintText: inputTitle,
@@ -73,6 +55,23 @@ class _LoginPageState extends State<Loginpage> {
           ScaffoldMessenger.of(context).showSnackBar(snackBar);
         },
         child: Text(title),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login Page'),
+      ),
+      body: Column(
+        children: [
+          _inputField("Username"),
+          _inputField("Password", isPassword: true),
+          _elevatedButton("Login", context),
+          Text(userController.text)
+        ],
       ),
     );
   }
